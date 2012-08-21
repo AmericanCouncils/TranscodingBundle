@@ -1,0 +1,26 @@
+{
+    "name": "ac/transcoding-bundle",
+    "type": "symfony-bundle",
+    "description": "Provides container services for using the AC Transcoding component in your Symfony2 project.",
+    "keywords": ["files", "transcoding"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evan Villemez",
+            "email": "evan.villemez@americancouncils.org"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "AC\\TranscodingBundle": "" }
+    },
+    "target-dir": "AC/TranscodingBundle",
+    "require": {
+        "php": ">=5.3.3",
+		"symfony/dependency-injection": "2.1.*",
+		"symfony/http-kernel": "2.1.*",
+        "ac/transcoding": "0.2.*"
+    },
+    "suggest": {
+        "sonata-project/notification-bundle": "2.0.*"
+    }
+}
