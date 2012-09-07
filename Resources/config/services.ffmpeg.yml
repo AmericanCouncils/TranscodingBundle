@@ -10,7 +10,7 @@ parameters:
 services:
     
     #ffmpeg adapter service
-	transcoding.adapter.ffmpeg:
+    transcoding.adapter.ffmpeg:
         class: %transcoding.ffmpeg.class%
         arguments: [%transcoding.ffmpeg.path%, %transcoding.ffmpeg.timeout%]
         tags:
