@@ -10,7 +10,7 @@ parameters:
 services:
     
     #handbrake adapter service
-	transcoding.adapter.handbrake:
+    transcoding.adapter.handbrake:
         class: %transcoding.handbrake.class%
         arguments: [%transcoding.handbrake.path%, %transcoding.handbrake.timeout%]
         tags:

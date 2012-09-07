@@ -4,14 +4,19 @@ namespace AC\TranscodingBundle\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
-use AC\Component\Transcoding\Console\OutputSubscriber;
+use AC\TranscodingBundle\Console\OutputSubscriber;
+use AC\Component\Transcoding\File;
+use AC\Component\Transcoding\Transcoder;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
-class TranscodeCommand extends Command
+class TranscodeCommand extends ContainerAwareCommand
 {
 	protected function configure()
     {
-        $this->setName("transcoding:transcode")
+        $this->setName("transcoder:transcode")
             ->setDescription("Transcode a file, given a preset.");
 
         $this->addArgument('inFile', InputArgument::REQUIRED, "String path to input file.");
@@ -29,7 +34,7 @@ class TranscodeCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $inFile = new File($input->getArgument('inFile'));
-        $presetKey = $input->getArgument('preset_key');
+        $presetKey = $input->getArgument('preset');
         $outputPath = $input->getArgument('outFile');
 
         //figure out conflict mode

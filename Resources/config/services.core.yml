@@ -4,6 +4,6 @@ parameters:
     transcoder.class: AC\Component\Transcoding\Transcoder
 
 services:
-	transcoder:
-		class: %transcoder.class%
+    transcoder:
+        class: %transcoder.class%
         
