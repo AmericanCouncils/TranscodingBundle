@@ -2,7 +2,7 @@ parameters:
     transcoding.handbrake.class: AC\Component\Transcoding\Adapter\HandbrakeAdapter
     
     #path to handbrake executable on filesystem
-    transcoding.handbrake.path: /usr/bin/HandbrakeCLI
+    transcoding.handbrake.path: /usr/local/bin/HandBrakeCLI
 
     #how long handbrake commands should run before timeout, null means no timeout
     transcoding.handbrake.timeout: null
@@ -14,70 +14,70 @@ services:
         class: %transcoding.handbrake.class%
         arguments: [%transcoding.handbrake.path%, %transcoding.handbrake.timeout%]
         tags:
-            - {name: transcoder.adapter}
+            - {name: transcoding.adapter}
 
     #handbrake preset services
     transcoding.preset.handbrake.apple_tv2:
         class: AC\Component\Transcoding\Preset\Handbrake\AppleTV2Preset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.apple_tv_legacy:
         class: AC\Component\Transcoding\Preset\Handbrake\AppleTVLegacyPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.apple_tv:
         class: AC\Component\Transcoding\Preset\Handbrake\AppleTVPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.classic:
         class: AC\Component\Transcoding\Preset\Handbrake\ClassicPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.high_profile:
         class: AC\Component\Transcoding\Preset\Handbrake\HighProfilePreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.ipad:
         class: AC\Component\Transcoding\Preset\Handbrake\iPadPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.iphone4:
         class: AC\Component\Transcoding\Preset\Handbrake\iPhone4Preset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.iphone_ipod_touch:
         class: AC\Component\Transcoding\Preset\Handbrake\iPhoneiPodTouchPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.iphone_legacy:
         class: AC\Component\Transcoding\Preset\Handbrake\iPhoneLegacyPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.ipod_legacy:
         class: AC\Component\Transcoding\Preset\Handbrake\iPodLegacyPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.ipod:
         class: AC\Component\Transcoding\Preset\Handbrake\iPodPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.normal:
         class: AC\Component\Transcoding\Preset\Handbrake\NormalPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
 
     transcoding.preset.handbrake.universal:
         class: AC\Component\Transcoding\Preset\Handbrake\UniversalPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}

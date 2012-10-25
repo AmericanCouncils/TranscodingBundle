@@ -1,7 +1,0 @@
-services:
-    sonata.notification.consumer.transcoder:
-        class: AC\TranscodingBundle\Notification\Consumer
-        arguments: [@transcoder]
-        tags:
-            - {name: sonata.notification.consumer, type: transcoder}
-        

@@ -14,56 +14,56 @@ services:
         class: %transcoding.ffmpeg.class%
         arguments: [%transcoding.ffmpeg.path%, %transcoding.ffmpeg.timeout%]
         tags:
-            - {name: transcoder.adapter}
+            - {name: transcoding.adapter}
             
             
     #ffmpeg preset services
     transcoding.preset.ffmpeg.audio_compression_32k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression32kPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_96k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression96kPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
                 - 
     transcoding.preset.ffmpeg.audio_compression_128k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression128kPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_160k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression160kPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_192k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression192kPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_256k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression256kPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_320k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression320kPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.avi_to_animated_gif:
         class: AC\Component\Transcoding\Preset\FFmpeg\AviToAnimatedGifPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.convert_non_m_video:
         class: AC\Component\Transcoding\Preset\FFmpeg\ConvertNonMVideoPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.sound_from_video:
         class: AC\Component\Transcoding\Preset\FFmpeg\SoundFromVideoPreset
         tags:
-            - {name: transcoder.preset}
+            - {name: transcoding.preset}
