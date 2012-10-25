@@ -1,6 +1,6 @@
 <?php
 
-namespace AC\TranscodingBundle\Notification;
+namespace AC\TranscodingBundle\Sonata;
 
 use Sonata\NotificationBundle\Consumer\ConsumerInterface;
 use Sonata\NotificationBundle\Consumer\ConsumerEvent;
