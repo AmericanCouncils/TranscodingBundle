@@ -1,0 +1,16 @@
+parameters:
+	transcoding.sonata.consumer.class: AC\TranscodingBundle\Sonata\Consumer
+    transcoding.sonata.consumer.conflictMode: 3
+    transcoding.sonata.consumer.dirMode: 2
+    transcoding.sonata.consumer.failMode: 2
+
+services:
+    transcoding.sonata.consumer:
+        class: %transcoding.sonata.consumer.class%
+        arguments:
+            - @transcoder
+            - %transcoding.sonata.consumer.conflictMode%
+            - %transcoding.sonata.consumer.dirMode%
+            - %transcoding.sonata.consumer.failMode%
+        tags:
+            - {name: sonata.notification.consumer, type: transcoder}

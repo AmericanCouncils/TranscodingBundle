@@ -16,11 +16,11 @@
     "target-dir": "AC/TranscodingBundle",
     "require": {
         "php": ">=5.3.3",
-		"symfony/dependency-injection": "2.1.*",
-		"symfony/http-kernel": "2.1.*",
-        "ac/transcoding": "0.2.*"
+		"symfony/framework-bundle": "2.1.*",
+        "ac/transcoding": "0.3.*"
     },
     "suggest": {
-        "sonata-project/notification-bundle": "2.0.*"
+        "sonata-project/notification-bundle": "2.0.*",
+        "oldsound/rabbitmq-bundle": "dev-master"
     }
 }
