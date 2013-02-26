@@ -14,9 +14,10 @@
         "psr-0": { "AC\\TranscodingBundle": "" }
     },
     "target-dir": "AC/TranscodingBundle",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
-		"symfony/framework-bundle": "2.1.*",
+	"symfony/framework-bundle": ">2.0, <2.3",
         "ac/transcoding": "0.3.*"
     },
     "suggest": {
