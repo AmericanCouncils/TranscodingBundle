@@ -3,18 +3,13 @@
 namespace AC\TranscodingBundle\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
-use AC\TranscodingBundle\Console\OutputSubscriber;
-use AC\Component\Transcoding\File;
 use AC\Component\Transcoding\Transcoder;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
-
 class StatusCommand extends ContainerAwareCommand
 {
-    
+
     protected function configure()
     {
         $this->setName("transcoder:status")->setDescription("Show config, status of all available adapters, and list usable presets.");

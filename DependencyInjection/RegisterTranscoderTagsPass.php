@@ -15,20 +15,20 @@ class RegisterTranscoderTagsPass implements CompilerPassInterface
         }
 
         $transcoderDefinition = $container->getDefinition('transcoder');
-		
+
         //register adapters/presets
-		foreach (array('adapter','preset') as $tagType) {
-			$tagName = 'transcoding.'.$tagType;
-			$method = 'register'.ucfirst($tagType);
-			
-			//call registration method
-			foreach ($container->findTaggedServiceIds($tagName) as $id => $attributes) {
-				$transcoderDefinition->addMethodCall($method, array(new Reference($id)));
-			}
-		}
-        
+        foreach (array('adapter','preset') as $tagType) {
+            $tagName = 'transcoding.'.$tagType;
+            $method = 'register'.ucfirst($tagType);
+
+            //call registration method
+            foreach ($container->findTaggedServiceIds($tagName) as $id => $attributes) {
+                $transcoderDefinition->addMethodCall($method, array(new Reference($id)));
+            }
+        }
+
         $dispatcherDefinition = $container->getDefinition('event_dispatcher');
-        
+
         //register event listeners
         foreach ($container->findTaggedServiceIds('transcoding.listener') as $id => $events) {
             foreach ($events as $event) {
@@ -48,7 +48,7 @@ class RegisterTranscoderTagsPass implements CompilerPassInterface
                 $dispatcherDefinition->addMethodCall('addListenerService', array($event['event'], array($id, $event['method']), $priority));
             }
         }
-        
+
         //register event subscribers
         foreach ($container->findTaggedServiceIds('transcoding.subscriber') as $id => $attributes) {
             // We must assume that the class value has been correcly filled, even if the service is created by a factory

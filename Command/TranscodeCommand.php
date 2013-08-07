@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class TranscodeCommand extends ContainerAwareCommand
 {
-	protected function configure()
+    protected function configure()
     {
         $this->setName("transcoder:transcode")
             ->setDescription("Transcode a file, given a preset.");
@@ -29,8 +29,7 @@ class TranscodeCommand extends ContainerAwareCommand
         $this->addOption('recurse', 'r', InputOption::VALUE_NONE, "Recursively create any needed directories during the transcode process.");
         $this->addOption('preserve', 'p', InputOption::VALUE_NONE, "Do not delete any created files on a failed transcode.");
     }
-    
-    
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $inFile = new File($input->getArgument('inFile'));

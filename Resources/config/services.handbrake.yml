@@ -1,5 +1,5 @@
 services:
-    
+
     #handbrake adapter service
     transcoding.adapter.handbrake:
         class: %transcoding.handbrake.class%

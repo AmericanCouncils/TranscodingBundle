@@ -7,4 +7,3 @@ services:
     transcoder:
         class: %transcoder.class%
         arguments: [@event_dispatcher]
-        
