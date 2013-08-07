@@ -14,14 +14,10 @@
         "psr-0": { "AC\\TranscodingBundle": "" }
     },
     "target-dir": "AC/TranscodingBundle",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.3.3",
-	"symfony/framework-bundle": ">2.0, <2.3",
+        "symfony/framework-bundle": ">2.0, <2.3",
         "ac/transcoding": "0.3.*"
-    },
-    "suggest": {
-        "sonata-project/notification-bundle": "2.0.*",
-        "oldsound/rabbitmq-bundle": "dev-master"
     }
 }

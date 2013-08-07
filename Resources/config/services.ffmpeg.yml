@@ -1,18 +1,9 @@
-parameters:
-    transcoding.ffmpeg.class: AC\Component\Transcoding\Adapter\FFmpegAdapter
-    
-    #path to ffmpeg executable on filesystem
-    transcoding.ffmpeg.path: /usr/bin/ffmpeg
-
-    #how long ffmpeg commands should run before timeout, null means no timeout
-    transcoding.ffmpeg.timeout: null
-
 services:
     
     #ffmpeg adapter service
     transcoding.adapter.ffmpeg:
         class: %transcoding.ffmpeg.class%
-        arguments: [%transcoding.ffmpeg.path%, %transcoding.ffmpeg.timeout%]
+        arguments: [%ac_transcoding.ffmpeg.path%, %ac_transcoding.ffmpeg.timeout%]
         tags:
             - {name: transcoding.adapter}
             
@@ -20,50 +11,60 @@ services:
     #ffmpeg preset services
     transcoding.preset.ffmpeg.audio_compression_32k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression32kPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_96k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression96kPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
                 - 
     transcoding.preset.ffmpeg.audio_compression_128k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression128kPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_160k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression160kPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_192k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression192kPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_256k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression256kPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.audio_compression_320k:
         class: AC\Component\Transcoding\Preset\FFmpeg\AudioCompression320kPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.avi_to_animated_gif:
         class: AC\Component\Transcoding\Preset\FFmpeg\AviToAnimatedGifPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.convert_non_m_video:
         class: AC\Component\Transcoding\Preset\FFmpeg\ConvertNonMVideoPreset
+        shared: false
         tags:
             - {name: transcoding.preset}
             
     transcoding.preset.ffmpeg.sound_from_video:
         class: AC\Component\Transcoding\Preset\FFmpeg\SoundFromVideoPreset
+        shared: false
         tags:
             - {name: transcoding.preset}

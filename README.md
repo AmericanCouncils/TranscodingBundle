@@ -1,13 +1,24 @@
-# TODO #
-
-* push new tagged `0.3.0` version of this
-
-
 # ACTranscodingBundle #
 
 This bundle provides container services for loading the file transcoder in your own code.
 
 > This bundle is developed in sync with the `http://github.com/AmericanCouncils/Transcoding` repository.
+
+## Configuration ##
+
+You can copy/paste the config block below into your `app/config.yml` and modify as needed:
+
+```yml
+ac_transcoding:
+    ffmpeg: 
+        enabled: true           #if false, other keys need not be specified
+        path: /usr/bin/ffmpeg
+        timeout: 0
+    handbrake:
+        enabled: true           #if false, other keys need not be specified
+        path: /usr/local/bin/HandBrakeCLI
+        timeout: 0
+```
 
 ## Services ##
 
@@ -33,39 +44,3 @@ The bundle provides a few commands for accessing the transcoder via the command 
 * `transcoder:transcode [infile] [preset] [outfile]` - Transcodes an input file with a preset, creating the output file.  You can use this to test custom presets and adapters if necessary.
 * `transcoder:status` - Displays a list of enabled and working adapters based on current configuration, plus a list of usable presets.
 
-## SonataNotificationBundle Integration ##
-
-The bundle also provides a `SonataNotificationBundle` consumer.  Meaning, if you have `SonataNotificationBundle` installed, you can publish transcode messages to be processed asyncronously.  See an example below:
-
-    $container->get('sonata.notification.backend')->create('transcoder', array(
-        'infile' => '/absolute/path/to/input/file',             //required
-        'preset' => 'preset_key',                               //required
-        'outfile' => '/path/to/output'                          //optional
-        'conflictMode' => Transcoder::ONCONFLICT_EXCEPTION,     //optional
-        'dirMode' => Transcoder::ONDIR_EXCEPTION,               //optional
-        'failMode' => Transcoder::ONFAIL_DELETE                 //optional
-    ));
-
-## RabbitMQBundle Integration ##
-
-Alternatively, some may want to leverage RabbitMQ directly for more advanced feature support.
-
-To publish a message for RabbitMQ to process asynchronously requires a little extra setup, meaning that you
-must configure the RabbitMQBundle with the necessary queues/exchanges that specify the `transcoding.rabbitmq.consumer` 
-service as the callback.
-
-Assuming you've set this up correctly, you can publish a message like so:
-
-    $msg = array(
-        'infile' => '/absolute/path/to/input/file',             //required
-        'preset' => 'preset_key',                               //required
-        'outfile' => '/path/to/output'                          //optional
-        'conflictMode' => Transcoder::ONCONFLICT_EXCEPTION,     //optional
-        'dirMode' => Transcoder::ONDIR_EXCEPTION,               //optional
-        'failMode' => Transcoder::ONFAIL_DELETE                 //optional
-    );
-    
-    //the exact name of the publisher service depends on what you've specified in the
-    //config for the RabbitMQBundle
-    $container->get('YOUR_RABBIT_QUEUE_SERVICE')->publish(serialize($msg));
-    
