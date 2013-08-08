@@ -1,10 +1,10 @@
 <?php
 
 namespace AC\TranscodingBundle\Console;
-use AC\Component\Transcoding\File;
-use AC\Component\Transcoding\Event\MessageEvent;
-use AC\Component\Transcoding\Event\TranscodeEvent;
-use AC\Component\Transcoding\Event\TranscodeEvents;
+use AC\Transcoding\File;
+use AC\Transcoding\Event\MessageEvent;
+use AC\Transcoding\Event\TranscodeEvent;
+use AC\Transcoding\Event\TranscodeEvents;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

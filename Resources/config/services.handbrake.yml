@@ -2,86 +2,86 @@ services:
 
     #handbrake adapter service
     transcoding.adapter.handbrake:
-        class: %transcoding.handbrake.class%
+        class: AC\Transcoding\Adapter\HandbrakeAdapter
         arguments: [%ac_transcoding.handbrake.path%, %ac_transcoding.handbrake.timeout%]
         tags:
             - {name: transcoding.adapter}
 
     #handbrake preset services
     transcoding.preset.handbrake.apple_tv2:
-        class: AC\Component\Transcoding\Preset\Handbrake\AppleTV2Preset
+        class: AC\Transcoding\Preset\Handbrake\AppleTV2Preset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.apple_tv_legacy:
-        class: AC\Component\Transcoding\Preset\Handbrake\AppleTVLegacyPreset
+        class: AC\Transcoding\Preset\Handbrake\AppleTVLegacyPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.apple_tv:
-        class: AC\Component\Transcoding\Preset\Handbrake\AppleTVPreset
+        class: AC\Transcoding\Preset\Handbrake\AppleTVPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.classic:
-        class: AC\Component\Transcoding\Preset\Handbrake\ClassicPreset
+        class: AC\Transcoding\Preset\Handbrake\ClassicPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.high_profile:
-        class: AC\Component\Transcoding\Preset\Handbrake\HighProfilePreset
+        class: AC\Transcoding\Preset\Handbrake\HighProfilePreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.ipad:
-        class: AC\Component\Transcoding\Preset\Handbrake\iPadPreset
+        class: AC\Transcoding\Preset\Handbrake\iPadPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.iphone4:
-        class: AC\Component\Transcoding\Preset\Handbrake\iPhone4Preset
+        class: AC\Transcoding\Preset\Handbrake\iPhone4Preset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.iphone_ipod_touch:
-        class: AC\Component\Transcoding\Preset\Handbrake\iPhoneiPodTouchPreset
+        class: AC\Transcoding\Preset\Handbrake\iPhoneiPodTouchPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.iphone_legacy:
-        class: AC\Component\Transcoding\Preset\Handbrake\iPhoneLegacyPreset
+        class: AC\Transcoding\Preset\Handbrake\iPhoneLegacyPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.ipod_legacy:
-        class: AC\Component\Transcoding\Preset\Handbrake\iPodLegacyPreset
+        class: AC\Transcoding\Preset\Handbrake\iPodLegacyPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.ipod:
-        class: AC\Component\Transcoding\Preset\Handbrake\iPodPreset
+        class: AC\Transcoding\Preset\Handbrake\iPodPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.normal:
-        class: AC\Component\Transcoding\Preset\Handbrake\NormalPreset
+        class: AC\Transcoding\Preset\Handbrake\NormalPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}
 
     transcoding.preset.handbrake.universal:
-        class: AC\Component\Transcoding\Preset\Handbrake\UniversalPreset
+        class: AC\Transcoding\Preset\Handbrake\UniversalPreset
         scope: prototype
         tags:
             - {name: transcoding.preset}

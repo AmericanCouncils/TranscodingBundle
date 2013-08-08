@@ -4,6 +4,7 @@ namespace AC\TranscodingBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 class RegisterTranscoderTagsPass implements CompilerPassInterface
@@ -23,7 +24,7 @@ class RegisterTranscoderTagsPass implements CompilerPassInterface
 
             //call registration method
             foreach ($container->findTaggedServiceIds($tagName) as $id => $attributes) {
-                $transcoderDefinition->addMethodCall($method, array(new Reference($id)));
+                $transcoderDefinition->addMethodCall($method, array(new Reference($id, ContainerInterface::EXCEPTION_ON_INVALID_REFERENCE, false)));
             }
         }
 

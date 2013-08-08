@@ -18,6 +18,6 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": ">2.1, <2.4",
-        "ac/transcoding": "0.3.*"
+        "ac/transcoding": "0.4.*"
     }
 }

@@ -4,7 +4,7 @@ namespace AC\TranscodingBundle\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use AC\Component\Transcoding\Transcoder;
+use AC\Transcoding\Transcoder;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class StatusCommand extends ContainerAwareCommand

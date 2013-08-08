@@ -8,8 +8,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 use AC\TranscodingBundle\Console\OutputSubscriber;
-use AC\Component\Transcoding\File;
-use AC\Component\Transcoding\Transcoder;
+use AC\Transcoding\File;
+use AC\Transcoding\Transcoder;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class TranscodeCommand extends ContainerAwareCommand

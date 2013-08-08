@@ -1,7 +1,7 @@
 # Core service is just the transcoder service.
 # Compiler passes register any adapters/presets/listeners via container tags
 parameters:
-    transcoder.class: AC\Component\Transcoding\Transcoder
+    transcoder.class: AC\Transcoding\Transcoder
 
 services:
     transcoder:

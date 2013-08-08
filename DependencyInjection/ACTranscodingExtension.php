@@ -17,14 +17,21 @@ class ACTranscodingExtension extends Extension
             new FileLocator(__DIR__.'/../Resources/config')
         );
 
+        $loader->load('services.core.yml');
+
         //include ffmpeg?
         if ($config['ffmpeg']['enabled']) {
             $loader->load('services.ffmpeg.yml');
+            $container->setParameter('ac_transcoding.ffmpeg.path', $config['ffmpeg']['path']);
+            $container->setParameter('ac_transcoding.ffmpeg.timeout', $config['ffmpeg']['timeout']);
         }
 
         //include handbrake?
         if ($config['handbrake']['enabled']) {
             $loader->load('services.handbrake.yml');
+            $container->setParameter('ac_transcoding.handbrake.path', $config['handbrake']['path']);
+            $container->setParameter('ac_transcoding.handbrake.timeout', $config['handbrake']['timeout']);
         }
+
     }
 }

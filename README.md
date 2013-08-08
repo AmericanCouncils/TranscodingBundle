@@ -22,7 +22,7 @@ ac_transcoding:
 
 ## Services ##
 
-* `transcoder` - will return an instance of `AC\Component\Transcoding\Transcoder`, automatically registering any tagged Adapters, Presets, and Listeners
+* `transcoder` - will return an instance of `AC\Transcoding\Transcoder`, automatically registering any tagged Adapters, Presets, and Listeners
 
 You can use the `transcoder` service to transcode a file:
 
