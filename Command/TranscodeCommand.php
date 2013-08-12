@@ -10,6 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use AC\TranscodingBundle\Console\OutputSubscriber;
 use AC\Transcoding\File;
 use AC\Transcoding\Transcoder;
+use AC\Transcoding\Adapter\AbstractCliAdapter;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class TranscodeCommand extends ContainerAwareCommand
@@ -28,6 +29,7 @@ class TranscodeCommand extends ContainerAwareCommand
         $this->addOption('force', 'f', InputOption::VALUE_NONE, "Force transcoder to overwrite any pre-existing files if present.");
         $this->addOption('recurse', 'r', InputOption::VALUE_NONE, "Recursively create any needed directories during the transcode process.");
         $this->addOption('preserve', 'p', InputOption::VALUE_NONE, "Do not delete any created files on a failed transcode.");
+        $this->addOption('with', null, InputOption::VALUE_OPTIONAL, "A JSON string of arguments to inject into the chosen preset.");
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -53,19 +55,27 @@ class TranscodeCommand extends ContainerAwareCommand
         $outputSubscriber = new OutputSubscriber;
         $outputSubscriber->setOutput($output);
         $outputSubscriber->setHelperSet($this->getHelperSet());
-        $transcoder->addSubscriber($outputSubscriber);
+        $transcoder->getDispatcher()->addSubscriber($outputSubscriber);
 
         //check for verbose mode
         if ($input->getOption('verbose')) {
             $adapterKey = $transcoder->getPreset($presetKey)->getRequiredAdapter();
             $adapter = $transcoder->getAdapter($adapterKey);
             if ($adapter instanceof AbstractCliAdapter) {
-                $adapter->setStreamBuffer();
+                $adapter->setStreamBuffer(true);
             }
+        }
+        
+        $preset = $transcoder->getPreset($presetKey);
+        
+        //check for additional preset parameters
+        if ($ops = $input->getOption('with')) {
+            $args = json_decode($ops, true);
+            $preset->mergeOptions($args);
         }
 
         //run the transcode
-        $newFile = $transcoder->transcodeWithPreset($inFile, $presetKey, $outputPath, $conflictMode, $dirMode, $failMode);
+        $newFile = $transcoder->transcodeWithPreset($inFile, $preset, $outputPath, $conflictMode, $dirMode, $failMode);
 
         return true;
     }

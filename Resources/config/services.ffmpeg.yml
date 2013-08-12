@@ -9,48 +9,6 @@ services:
 
 
     #ffmpeg preset services
-    transcoding.preset.ffmpeg.audio_compression_32k:
-        class: AC\Transcoding\Preset\FFmpeg\AudioCompression32kPreset
-        scope: prototype
-        tags:
-            - {name: transcoding.preset}
-
-    transcoding.preset.ffmpeg.audio_compression_96k:
-        class: AC\Transcoding\Preset\FFmpeg\AudioCompression96kPreset
-        scope: prototype
-        tags:
-            - {name: transcoding.preset}
-
-    transcoding.preset.ffmpeg.audio_compression_128k:
-        class: AC\Transcoding\Preset\FFmpeg\AudioCompression128kPreset
-        scope: prototype
-        tags:
-            - {name: transcoding.preset}
-
-    transcoding.preset.ffmpeg.audio_compression_160k:
-        class: AC\Transcoding\Preset\FFmpeg\AudioCompression160kPreset
-        scope: prototype
-        tags:
-            - {name: transcoding.preset}
-
-    transcoding.preset.ffmpeg.audio_compression_192k:
-        class: AC\Transcoding\Preset\FFmpeg\AudioCompression192kPreset
-        scope: prototype
-        tags:
-            - {name: transcoding.preset}
-
-    transcoding.preset.ffmpeg.audio_compression_256k:
-        class: AC\Transcoding\Preset\FFmpeg\AudioCompression256kPreset
-        scope: prototype
-        tags:
-            - {name: transcoding.preset}
-
-    transcoding.preset.ffmpeg.audio_compression_320k:
-        class: AC\Transcoding\Preset\FFmpeg\AudioCompression320kPreset
-        scope: prototype
-        tags:
-            - {name: transcoding.preset}
-
     transcoding.preset.ffmpeg.avi_to_animated_gif:
         class: AC\Transcoding\Preset\FFmpeg\AviToAnimatedGifPreset
         scope: prototype
