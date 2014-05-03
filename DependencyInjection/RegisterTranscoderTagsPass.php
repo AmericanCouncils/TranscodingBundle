@@ -28,7 +28,7 @@ class RegisterTranscoderTagsPass implements CompilerPassInterface
             }
         }
 
-        $dispatcherDefinition = $container->getDefinition('event_dispatcher');
+        $dispatcherDefinition = $container->findDefinition('event_dispatcher');
 
         //register event listeners
         foreach ($container->findTaggedServiceIds('transcoding.listener') as $id => $events) {
